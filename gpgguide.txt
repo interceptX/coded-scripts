@@ -1,0 +1,6 @@
+gpg --gen-key
+gpg --armor --export <personal@email.com>
+gpg --output decrypthisfile.asc --encrypt --armor --sign --recipient <personal@email.txt> encryptthisfile.txt
+gpg --output filewasdecrypted.txt --decrypt decrypthisfile.asc
+gpg --import --allow-non-selfsigned-uid <publickey.txt>
+gpg --decrypt
