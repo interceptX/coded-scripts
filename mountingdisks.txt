@@ -1,0 +1,2 @@
+mount /dev/sdb1 <path_directory_to_mount>
+umount <path_directory_mounted>

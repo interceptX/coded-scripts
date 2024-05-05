@@ -1,0 +1,2 @@
+tar -czvf <output_compressfile.tar.gz> ./path/file/directory/to/compress
+pv <decompress_this_file.tar.gz | tar -xz
