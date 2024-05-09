@@ -1,0 +1,5 @@
+podman run -ti --security-opt seccomp=unconfined ubuntu /bin/bash -c "apt update && /bin/bash"
+podman ps -a 
+podman start <container_id>
+podman attach <container_id> || podman exec -ti <container_id> /bin/bash
+
