@@ -1,0 +1,8 @@
+#creating virtual environment
+
+python -m venv /<your_environment_directory>
+source ~/<your_environment_directory>/bin/activate
+pip install <python_module>
+
+# deactivating the environment
+deactivate
