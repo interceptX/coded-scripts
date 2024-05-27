@@ -6,7 +6,13 @@ subnet = "192.168.100.0/24"
 start_port = 1
 end_port = 65535
 open_port = []
- 
+
+command = b"A" * 1000 
+send_packet = IP(dst=target_ip)/UDP(dport=443)/ICMP(type=8)/Raw(load=command)
+request = sr1(send_packet, timeout=3)
+print(request) 
+
+
 #arp scanning localnet devices
 """
 arp_request = Ether(dst="ff:ff:ff:ff:ff:ff") / ARP(pdst=subnet)
@@ -15,6 +21,8 @@ for send, recv in answered:
     print(recv.psrc, recv.hwsrc)
 """
 
+#ping probe scan
+"""
 pkt = IP(dst=target_ip)/ICMP()
 response = sr1(pkt, timeout=2)
 
@@ -22,7 +30,12 @@ if response:
     print("[+] ping packet successfully requested! received from : ", response.src)
 else:
     print("[-] response failed!")
+"""
 
+
+
+#vulnerability scanning idea
+"""
 def check_cve_vulnerabilities(target_ip):
     cve_vulnerabilities = {
         "CVE-2021-1234": "Buffer overflow vulnerability",
@@ -33,6 +46,7 @@ def check_cve_vulnerabilities(target_ip):
         print(f"[+] ......checking {cve} on {target_ip} : {description}")
 
 check_cve_vulnerabilities(target_ip)
+"""
 
 #port scanning
 """
