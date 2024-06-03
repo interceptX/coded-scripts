@@ -51,13 +51,6 @@ class EchoBot(Client):
             sys.exit(0)
                 
 session_cookies = {
-    "sb":"c4tcZlFtlA4fFhcvmshz9coN",                                                                                                   
-    "datr":"c4tcZshLptqdSpiD1e68rNNE",                                                                                                                                                                                        
-    "c_user":"61558478504573",                                                                                                                                                                                                
-    "xs":"7%3A15TI_G5BUifdxA%3A2%3A1717341058%3A-1%3A7470",                                                                                                                                                                  
-    "fr":"0dRs9pDE5abXtiFMb.AWXwVPh8h2f6Ch6_HOvlZVC3t9Q.BmXIuC..AAA.0.0.BmXIuF.AWXH__I2h3U",                                                                                                                                  
-    "wd":"901x285",                                      
-    "presence":"C%7B%22lm3%22%3A%22u.61558478504573%22%2C%22t3%22%3A%5B%7B%22o%22%3A0%2C%22i%22%3A%22u.61558478504573%22%7D%5D%2C%22utc3%22%3A1717341127218%2C%22v%22%3A1%7D"
  
 }
 
