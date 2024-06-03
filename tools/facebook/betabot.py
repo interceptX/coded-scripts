@@ -7,13 +7,7 @@ from fbchat.models import *
 class MessBot(Client):
 
   #Read Messages, See Messages from other users
-  def onMessage(self,
-                mid=None,
-                author_id=None,
-                message_object=None,
-                thread_id=None,
-                thread_type=ThreadType.USER,
-                **kwargs):
+  def onMessage(self, mid=None, author_id=None, message_object=None, thread_id=None, thread_type=ThreadType.USER, **kwargs):
     try:
       msg = str(message_object).split(",")[15][14:-1]
       print(msg)
@@ -33,33 +27,28 @@ class MessBot(Client):
 #Reply to the user/send message
 
     def sendMsg():
-      if (author_id != self.uid):
-        self.send(Message(text=reply),
-                  thread_id=thread_id,
-                  thread_type=thread_type)
+      if (author_id != self.uid): self.send(Message(text=reply), thread_id=thread_id, thread_type=thread_type)
 
   #MESSAGE SENDING
 
     if (author_id != self.uid):
-      if ("Hi" in msg):
-        reply = ""
+      if ("h" in msg):
+        reply = "Hey! I am marvelbot v1.0. Just type 'help' to show other commands."
         sendMsg()
       elif ("help" in msg):
-        reply = ""
+        reply = "\nmarvelbot v1.0 commands:\n- info\n- about\n- hack\n- troll\n- paksa\n- zoom\n- report"
         sendMsg()
     else:
       pass
 
 #Get Cookies Using GET TOKEN COOKIES (https://chrome.google.com/webstore/detail/get-token-cookie/naciaagbkifhpnoodlkhbejjldaiffcm)
 session_cookies = {
-
-
 }
 
 bot = MessBot('', '', session_cookies=session_cookies)
 print(bot.isLoggedIn())
 
 try:
-  bot.listen()
+  print(bot.listen(),"\n[+] successfully connecting and now starting up!")
 except:
-  bot.listen()
+  print(bot.listen(),"\n[-] something went wrong to the bot!")
