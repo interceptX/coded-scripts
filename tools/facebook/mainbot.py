@@ -90,14 +90,17 @@ class EchoBot(Client):
                 website = words[1]
             else:
                 print("[+] cant output second word!")
-            webapp = f"\n[+] getting subdomain: {website}\n[+] subdomain lists\n"
-            filetext = "/home/interceptX/notes/tools/facebook/data/subdomains.txt"
-            command = f"curl -s https://crt.sh/?q=%25.{website}&output=json | jq -r '.[].name_value' | sort -u >> {filetext}"
-            process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            with open(filetext, 'r') as file:
-                data = file.read()
-            info = webapp + data
-            self.send(Message(text=info), thread_id=thread_id, thread_type=thread_type)
+            target = website
+            webapp = f"\n[+] getting subdomain: {target}\n[+] subdomain lists\n"
+            command = f"curl -s 'https://crt.sh/?q=%25.{target}&output=json' | jq -r '.[].name_value' | sort -u "
+            data = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            output, error = data.communicate()
+            if output:
+                goodresponse = webapp + output.decode()
+                self.send(Message(text=goodresponse), thread_id=thread_id, thread_type=thread_type)
+            if error:
+                badresponse = webapp + error.decode()
+                self.send(Message(text=badresponse), thread_id=thread_id, thread_type=thread_type)
  
         def ipaddr_command(sentence):
             words = sentence.split()
@@ -106,9 +109,9 @@ class EchoBot(Client):
             else:
                 print("[+] cant output second word!")
             ipaddr = f"\n[+] getting ip address info\n[+] target: {host}\n[+] server response:\n"
-            command = f"curl -s ipinfo.io/{host}"
-            process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            output, error = process.communicate()
+            command = f"curl -s ipinfo.io/{host} | jq '.hostname, .city, .region, .country, .loc, .org, .postal, .timezone'"
+            data = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            output, error = data.communicate()
             if output:
                 goodresponse = ipaddr + output.decode()
                 self.send(Message(text=goodresponse), thread_id=thread_id, thread_type=thread_type)
@@ -122,6 +125,15 @@ class EchoBot(Client):
                 lines = file.readlines()
             random_line = random.choice(lines)
             self.send(Message(text=random_line), thread_id=thread_id, thread_type=thread_type)
+
+        def chat_command():
+            txt  = "/home/interceptX/notes/tools/facebook/data/random.txt"
+            with open(txt,'r') as file:
+                lines = file.readlines()
+            random_chat = random.choice(lines)
+            self.send(Message(text=random_chat), thread_id=thread_id, thread_type=thread_type)
+
+
 
         try:
             if author_id != self.uid:
@@ -138,6 +150,8 @@ class EchoBot(Client):
                 elif "pizza" in message.lower(): pizza_command(message.lower())
                 elif "webapp" in message.lower(): webapp_command(message.lower())
                 elif "ipaddr" in message.lower(): ipaddr_command(message.lower())
+                elif "a" or "e" in message.lower(): chat_command()
+
 
         except KeyboardInterrupt:
             print("[+] facebook bot terminated!")
@@ -145,7 +159,7 @@ class EchoBot(Client):
 
 session_cookies = {
 }
-                 
+
 client = EchoBot("", "", session_cookies=session_cookies)
 if client.isLoggedIn() is True:
     print("[+] facebook bot successfully logged in!")
