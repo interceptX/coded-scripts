@@ -1,5 +1,6 @@
 from fbchat import Client  
 from fbchat.models import *
+import subprocess
 import sys
 import random
 
@@ -89,8 +90,14 @@ class EchoBot(Client):
                 website = words[1]
             else:
                 print("[+] cant output second word!")
-            webapp = f"\n[+] getting subdomain: {website}\n"
-            self.send(Message(text=webapp), thread_id=thread_id, thread_type=thread_type)
+            webapp = f"\n[+] getting subdomain: {website}\n[+] subdomain lists\n"
+            filetext = "/home/interceptX/notes/tools/facebook/data/subdomains.txt"
+            command = f"curl -s https://crt.sh/?q=%25.{website}&output=json | jq -r '.[].name_value' | sort -u >> {filetext}"
+            process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            with open(filetext, 'r') as file:
+                data = file.read()
+            info = webapp + data
+            self.send(Message(text=info), thread_id=thread_id, thread_type=thread_type)
  
         def ipaddr_command(sentence):
             words = sentence.split()
@@ -98,8 +105,16 @@ class EchoBot(Client):
                 host = words[1]
             else:
                 print("[+] cant output second word!")
-            ipaddr = f"\n[+] getting ip address info\n[+] target: {host}"
-            self.send(Message(text=reply), thread_id=thread_id, thread_type=thread_type)
+            ipaddr = f"\n[+] getting ip address info\n[+] target: {host}\n[+] server response:\n"
+            command = f"curl -s ipinfo.io/{host}"
+            process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            output, error = process.communicate()
+            if output:
+                goodresponse = ipaddr + output.decode()
+                self.send(Message(text=goodresponse), thread_id=thread_id, thread_type=thread_type)
+            if error:
+                badresponse = ipaddr + error.decode()
+                self.send(Message(text=badresponse), thread_id=thread_id, thread_type=thread_type)
 
         def troll_command():
             txt  = "/home/interceptX/notes/tools/facebook/data/troll.txt"
@@ -127,10 +142,10 @@ class EchoBot(Client):
         except KeyboardInterrupt:
             print("[+] facebook bot terminated!")
             sys.exit(0)
-                
+
 session_cookies = {
 }
- 
+                 
 client = EchoBot("", "", session_cookies=session_cookies)
 if client.isLoggedIn() is True:
     print("[+] facebook bot successfully logged in!")
