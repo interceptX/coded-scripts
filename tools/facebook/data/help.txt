@@ -3,6 +3,10 @@ MarvelBot v1.0 commands:
 - troll = generate a joke
 - info  = bot information
 - zoom  = zoom link meeting
-- report = specify a facebook user to ban
-- adel = information about kua adel
-
+- adel = info about Mr.Adel
+- stop = command: stop <person_name>
+- hotdog = command: hotdog <person_name>
+- pizza = command: pizza <person_name>
+- report = command: report <facebook_user_id>
+- webapp = command: webapp <target_host>
+- ipaddr = command: ipaddr <target_ip>
