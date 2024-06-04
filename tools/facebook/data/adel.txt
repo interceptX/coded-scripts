@@ -1,0 +1,25 @@
+Kua Adel Information
+
+- name: Jefrey Quilog
+- country : Philippines
+- region : NCR
+- MCGI Member : Yes
+- Nationality : Filipino
+- Sex : Male
+- Phone : 09269836708
+- Address : Sitio Reddit, Apalit, Pampanga
+- Status : Single, Civilian
+- Ip Address : 192.168.322.12
+- Facebook User : Yes
+- Favourite : 5 yrs.old girls
+- Church Comitte : Worker
+- Age : 57
+- Enemy : KDR (Kuya Daniel Razon)
+- ISP : PLDT Philippine Long Distance Telephone
+- Primary Device : Android
+- Secondary Device : PC
+- Geolocation: Lat 12.12321, Long 13.12312
+- BloodType : AB
+- Electric Provider : PELCO
+
+----------------------------------

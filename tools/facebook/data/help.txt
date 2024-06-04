@@ -1,0 +1,8 @@
+MarvelBot v1.0 commands:
+
+- troll = generate a joke
+- info  = bot information
+- zoom  = zoom link meeting
+- report = specify a facebook user to ban
+- adel = information about kua adel
+
