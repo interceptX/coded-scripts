@@ -20,7 +20,7 @@ class EchoBot(Client):
                 lines = file.read()
             reply = lines
             self.send(Message(text=reply), thread_id=thread_id, thread_type=thread_type)
-            print('[+] user used welcome command.')
+            print('[+] a facebook user used welcome command.')
 
         def help_command(): 
             txt  = "/home/interceptX/notes/tools/facebook/data/help.txt"
@@ -28,7 +28,7 @@ class EchoBot(Client):
                 lines = file.read()
             reply = lines
             self.send(Message(text=reply), thread_id=thread_id, thread_type=thread_type)
-            print('[+] user used help command.')
+            print('[+] a facebook user used help command.')
 
         def adel_info(): 
             txt  = "/home/interceptX/notes/tools/facebook/data/adel.txt"
@@ -36,7 +36,7 @@ class EchoBot(Client):
                 lines = file.read()
             reply = lines
             self.send(Message(text=reply), thread_id=thread_id, thread_type=thread_type)
-            print('[+] user used adel info.')
+            print('[+] a facebook user used adel info.')
 
 
         def info_command():
@@ -45,12 +45,12 @@ class EchoBot(Client):
                 lines = file.read()
             reply = lines
             self.send(Message(text=reply), thread_id=thread_id, thread_type=thread_type)
-            print('[+] user used bot info command.')
+            print('[+] a facebook user used bot info command.')
 
         def zoom_command():
             reply = "\n[-] zoom account not yet setup!"
             self.send(Message(text=reply), thread_id=thread_id, thread_type=thread_type)
-            print('[+] user used zoom command.')
+            print('[+] a facebook user used zoom command.')
 
         def report_command(sentence):
             words = sentence.split()
@@ -60,7 +60,7 @@ class EchoBot(Client):
                 print("[+] cant output second word!")
             report = f"\n[+] facebook uid: {uid}\n[+] auto report activated\n[+] sending malicious report\n[+] massive report lock"
             self.send(Message(text=report), thread_id=thread_id, thread_type=thread_type)
-            print('[+] user used report command.')
+            print('[+] a facebook user used report command.')
 
         def stop_command(sentence):
             words = sentence.split()
@@ -70,7 +70,7 @@ class EchoBot(Client):
                 print("[+] cant output second word!")
             stop = f"\n Yamete, Yamete Kudasai! {name}, Im so Horny!"
             self.send(Message(text=stop), thread_id=thread_id, thread_type=thread_type)
-            print('[+] user used stop command.')
+            print('[+] a facebook user used stop command.')
 
         def hotdog_command(sentence):
             words = sentence.split()
@@ -80,7 +80,7 @@ class EchoBot(Client):
                 print("[+] cant output second word!")
             hotdog = f" Would you like to eat my hotdogs Mr.{name}"
             self.send(Message(text=hotdog), thread_id=thread_id, thread_type=thread_type)
-            print('[+] user used a hotdog command.')
+            print('[+] a facebook user used a hotdog command.')
  
         def pizza_command(sentence):
             words = sentence.split()
@@ -90,7 +90,7 @@ class EchoBot(Client):
                 print("[+] cant output second word!")
             pizza = f" Mr.{name} love to eat pizza of a woman! Im glad he always made it."
             self.send(Message(text=pizza), thread_id=thread_id, thread_type=thread_type)
-            print('[+] user used pizza command.')
+            print('[+] a facebook user used pizza command.')
 
         def webapp_command(sentence):
             words = sentence.split()
@@ -120,7 +120,7 @@ class EchoBot(Client):
                     data = file.read()
                 badresponse = webapp + data
                 self.send(Message(text=badresponse), thread_id=thread_id, thread_type=thread_type)
-            print('[+] user used a webapp command.') 
+            print('[+] a facebook user used a webapp command.') 
 
 
         def ipaddr_command(sentence):
@@ -150,7 +150,7 @@ class EchoBot(Client):
                     data = file.read()
                 badresponse = ipaddr + data
                 self.send(Message(text=badresponse), thread_id=thread_id, thread_type=thread_type)
-            print('[+] user used a ipaddr command.')
+            print('[+] a facebook user used a ipaddr command.')
 
         def troll_command():
             txt  = "/home/interceptX/notes/tools/facebook/data/troll.txt"
@@ -158,10 +158,10 @@ class EchoBot(Client):
                 lines = file.readlines()
             random_line = random.choice(lines)
             self.send(Message(text=random_line), thread_id=thread_id, thread_type=thread_type)
-            print('[+] user used a troll command')
+            print('[+] a facebook user used a troll command')
 
         def chat_command():
-            txt  = "/home/interceptX/notes/tools/facebook/data/random.txt"
+            txt  = "/home/interceptX/notes/tools/facebook/data/chat.txt"
             with open(txt,'r') as file:
                 lines = file.readlines()
             random_chat = random.choice(lines)
@@ -172,26 +172,27 @@ class EchoBot(Client):
         try:
             if author_id != self.uid:
                 message = message_object.text
-                if "hi" in message.lower(): welcome_command()
-                elif "help" in message.lower(): help_command()
-                elif "info" in message.lower(): info_command()
-                elif "zoom" in message.lower(): zoom_command()
-                elif "troll" in message.lower(): troll_command()
-                elif "report" in message.lower(): report_command(message.lower())
-                elif "adel" in message.lower(): adel_info()
-                elif "stop" in message.lower(): stop_command(message.lower())
-                elif "hotdog" in message.lower(): hotdog_command(message.lower())
-                elif "pizza" in message.lower(): pizza_command(message.lower())
-                elif "webapp" in message.lower(): webapp_command(message.lower())
-                elif "ipaddr" in message.lower(): ipaddr_command(message.lower())
-                elif "a" or "e" in message.lower(): chat_command()
+                if "@hi" in message.lower(): welcome_command()
+                elif "@help" in message.lower(): help_command()
+                elif "@info" in message.lower(): info_command()
+                elif "@zoom" in message.lower(): zoom_command()
+                elif "@troll" in message.lower(): troll_command()
+                elif "@report" in message.lower(): report_command(message.lower())
+                elif "@adel" in message.lower(): adel_info()
+                elif "@stop" in message.lower(): stop_command(message.lower())
+                elif "@hotdog" in message.lower(): hotdog_command(message.lower())
+                elif "@pizza" in message.lower(): pizza_command(message.lower())
+                elif "@webapp" in message.lower(): webapp_command(message.lower())
+                elif "@ipaddr" in message.lower(): ipaddr_command(message.lower())
+                elif "i" or "a" in message.lower(): chat_command()
 
 
         except KeyboardInterrupt:
             print("[+] facebook bot terminated!")
             sys.exit(0)
 
-session_cookies = {
+session_cookies {
+
 }
 
 try:

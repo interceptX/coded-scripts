@@ -1,12 +1,12 @@
 MarvelBot v1.0 commands:
 
-- troll = generate a joke
-- info  = bot information
-- zoom  = zoom link meeting
-- adel = info about Mr.Adel
-- stop = command: stop <person_name>
-- hotdog = command: hotdog <person_name>
-- pizza = command: pizza <person_name>
-- report = command: report <facebook_user_id>
-- webapp = command: webapp <target_host>
-- ipaddr = command: ipaddr <target_ip>
+- @troll = generate a joke
+- @info  = bot information
+- @zoom  = zoom link meeting
+- @adel = info about Mr.Adel
+- @stop = command: stop name
+- @hotdog = command: hotdog name
+- @pizza = command: pizza name
+- @report = command: report name
+- @webapp = command: webapp domain
+- @ipaddr = command: ipaddr ip

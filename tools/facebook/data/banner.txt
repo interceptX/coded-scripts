@@ -1,2 +1,2 @@
-Hey! [MarvelBot] for more info try {help} command
+Hey! [MarvelBot] for more info try @help command
 help: will show you info for other command of the bot. 
