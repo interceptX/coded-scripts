@@ -198,10 +198,14 @@ try:
     client = EchoBot("", "", session_cookies=session_cookies)
     if client.isLoggedIn() is True:
         print("[+] facebook bot successfully logged in!")
+        print("[+] facebook bot client will now listen conversations.")
+        if client.listen() is True:
+            print("[+] facebook bot client is actively listening conversations.")
+        else:
+            print("[-] facebook bot listening something went wrong!.")
     else:
         print("[-] something went wrong about the bot!")
-    client.listen()
-    print("[+] facebook bot client currently listening conversations.")
+
 except FBchatUserError:
     print("[+] facebook bot terminated!")
     sys.exit(0)
