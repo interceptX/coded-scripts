@@ -13,8 +13,6 @@ class EchoBot(Client):
     def onMessage(self, mid=None, author_id=None, message_object=None, thread_id=None, thread_type=None, **kwargs):
         self.markAsDelivered(thread_id, message_object.uid)
         self.markAsRead(thread_id)
-        time = datetime.datetime.now()
-        current_time = time.hour,':', time.minute,':', time.second,
 
         def welcome_command():
             txt  = "/home/interceptX/notes/tools/facebook/data/banner.txt"
@@ -227,7 +225,7 @@ class EchoBot(Client):
                 elif "@webapp" in message.lower(): webapp_command(message.lower())
                 elif "@ipaddr" in message.lower(): ipaddr_command(message.lower())
                 elif "@word" in message.lower(): word_command()
-                elif message.lower() is not None: chat_command(message.lower())
+                elif "a" in message.lower(): chat_command(message.lower())
 
         except KeyboardInterrupt:
             print("[+] facebook bot terminated!")
