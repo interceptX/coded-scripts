@@ -1,5 +1,8 @@
 from fbchat import Client  
 from fbchat.models import *
+from chatterbot import ChatBot
+#from chatterbot.trainers import ChatterBotCorpusTrainer
+import spacy
 import subprocess
 import sys
 import random
@@ -160,18 +163,30 @@ class EchoBot(Client):
             self.send(Message(text=random_line), thread_id=thread_id, thread_type=thread_type)
             print('[+] a facebook user used a troll command')
 
-        def chat_command():
-            txt  = "/home/interceptX/notes/tools/facebook/data/chat.txt"
+        def word_command():
+            txt  = "/home/interceptX/notes/tools/facebook/data/random.txt"
             with open(txt,'r') as file:
                 lines = file.readlines()
-            random_chat = random.choice(lines)
-            self.send(Message(text=random_chat), thread_id=thread_id, thread_type=thread_type)
-            print('[+] bot currently participating conversation.')
+            random_word = random.choice(lines)
+            self.send(Message(text=random_word), thread_id=thread_id, thread_type=thread_type)
+            print('[+] a facebook user used a gods word command.')
 
+        def chat_command(user_message):
+            facebook_user = user_message
+            #nlp = spacy.load('en_core_web_sm')
+            #chatbot = ChatBot('MyChatBot', spacy_language=nlp)
+            #trainer = ChatterBotCorpusTrainer(chatbot)
+            #trainer.train('chatterbot.corpus.english')
+            chatbot = CHatBot('Chatpot')
+            while True:
+                response = chatbot.get_response(facebook_user)
+                self.send(Message(text=response), thread_id=thread_id, thread_type=thread_type)
+                print('[+] bot is responding  to facebook users.')
 
         try:
             if author_id != self.uid:
                 message = message_object.text
+
                 if "@hi" in message.lower(): welcome_command()
                 elif "@help" in message.lower(): help_command()
                 elif "@info" in message.lower(): info_command()
@@ -184,15 +199,15 @@ class EchoBot(Client):
                 elif "@pizza" in message.lower(): pizza_command(message.lower())
                 elif "@webapp" in message.lower(): webapp_command(message.lower())
                 elif "@ipaddr" in message.lower(): ipaddr_command(message.lower())
-                elif "i" or "a" in message.lower(): chat_command()
-
+                elif "@word" in message.lower(): word_command()
+                elif " " in message.lower(): chat_command(message.lower())
+                   
 
         except KeyboardInterrupt:
             print("[+] facebook bot terminated!")
             sys.exit(0)
 
-session_cookies {
-
+session_cookies = {
 }
 
 try:
@@ -203,9 +218,9 @@ try:
         if client.listen() is True:
             print("[+] facebook bot client is actively listening conversations.")
         else:
-            print("[-] facebook bot listening something went wrong!.")
+            print("[!] facebook bot listening something went wrong!.")
     else:
-        print("[-] something went wrong about the bot!")
+        print("[!] something went wrong about the bot!")
 
 except FBchatUserError:
     print("[+] facebook bot terminated!")
