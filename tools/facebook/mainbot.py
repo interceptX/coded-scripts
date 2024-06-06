@@ -177,17 +177,16 @@ class EchoBot(Client):
             #chatbot = ChatBot('MyChatBot', spacy_language=nlp)
             #trainer = ChatterBotCorpusTrainer(chatbot)
             #trainer.train('chatterbot.corpus.english')
-            chatbot = CHatBot('Chatpot')
-            while True:
-                response = chatbot.get_response(facebook_user)
-                self.send(Message(text=response), thread_id=thread_id, thread_type=thread_type)
-                print('[+] bot is responding  to facebook users.')
+            chatbot = ChatBot('Chatpot')
+            response = chatbot.get_response(facebook_user)
+            self.send(Message(text=response), thread_id=thread_id, thread_type=thread_type)
+            print('[+] bot is responding  to facebook users.')
 
         try:
             if author_id != self.uid:
                 message = message_object.text
 
-                if "@hi" in message.lower(): welcome_command()
+                if message.lower() is not None: chat_command(message.lower())
                 elif "@help" in message.lower(): help_command()
                 elif "@info" in message.lower(): info_command()
                 elif "@zoom" in message.lower(): zoom_command()
@@ -200,7 +199,7 @@ class EchoBot(Client):
                 elif "@webapp" in message.lower(): webapp_command(message.lower())
                 elif "@ipaddr" in message.lower(): ipaddr_command(message.lower())
                 elif "@word" in message.lower(): word_command()
-                elif " " in message.lower(): chat_command(message.lower())
+                elif "@hi" in message.lower(): welcome_command()
                    
 
         except KeyboardInterrupt:
