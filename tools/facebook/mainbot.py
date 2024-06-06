@@ -2,6 +2,7 @@ from fbchat import Client
 from fbchat.models import *
 from chatterbot import ChatBot
 #from chatterbot.trainers import ChatterBotCorpusTrainer
+import datetime
 import spacy
 import subprocess
 import sys
@@ -12,10 +13,8 @@ class EchoBot(Client):
     def onMessage(self, mid=None, author_id=None, message_object=None, thread_id=None, thread_type=None, **kwargs):
         self.markAsDelivered(thread_id, message_object.uid)
         self.markAsRead(thread_id)
-
-        def sendmsg():
-            if (author_id != self.uid):
-                self.send(Message(text=reply), thread_id=thread_id, thread_type=thread_type)
+        time = datetime.datetime.now()
+        current_time = time.hour,':', time.minute,':', time.second,
 
         def welcome_command():
             txt  = "/home/interceptX/notes/tools/facebook/data/banner.txt"
@@ -23,7 +22,10 @@ class EchoBot(Client):
                 lines = file.read()
             reply = lines
             self.send(Message(text=reply), thread_id=thread_id, thread_type=thread_type)
-            print('[+] a facebook user used welcome command.')
+            time = datetime.datetime.now()
+            current_time = f"[{time.hour}:{time.minute}:{time.second}]"
+            print(current_time,'[+] a facebook user used welcome command.')
+
 
         def help_command(): 
             txt  = "/home/interceptX/notes/tools/facebook/data/help.txt"
@@ -31,7 +33,9 @@ class EchoBot(Client):
                 lines = file.read()
             reply = lines
             self.send(Message(text=reply), thread_id=thread_id, thread_type=thread_type)
-            print('[+] a facebook user used help command.')
+            time = datetime.datetime.now()
+            current_time = f"[{time.hour}:{time.minute}:{time.second}]"
+            print(current_time,'[+] a facebook user used help command.')
 
         def adel_info(): 
             txt  = "/home/interceptX/notes/tools/facebook/data/adel.txt"
@@ -39,7 +43,9 @@ class EchoBot(Client):
                 lines = file.read()
             reply = lines
             self.send(Message(text=reply), thread_id=thread_id, thread_type=thread_type)
-            print('[+] a facebook user used adel info.')
+            time = datetime.datetime.now()
+            current_time = f"[{time.hour}:{time.minute}:{time.second}]"
+            print(current_time,'[+] a facebook user used adel info.')
 
 
         def info_command():
@@ -48,12 +54,16 @@ class EchoBot(Client):
                 lines = file.read()
             reply = lines
             self.send(Message(text=reply), thread_id=thread_id, thread_type=thread_type)
-            print('[+] a facebook user used bot info command.')
+            time = datetime.datetime.now()
+            current_time = f"[{time.hour}:{time.minute}:{time.second}]"
+            print(current_time,'[+] a facebook user used bot info command.')
 
         def zoom_command():
             reply = "\n[-] zoom account not yet setup!"
             self.send(Message(text=reply), thread_id=thread_id, thread_type=thread_type)
-            print('[+] a facebook user used zoom command.')
+            time = datetime.datetime.now()
+            current_time = f"[{time.hour}:{time.minute}:{time.second}]"
+            print(current_time,'[+] a facebook user used zoom command.')
 
         def report_command(sentence):
             words = sentence.split()
@@ -63,7 +73,9 @@ class EchoBot(Client):
                 print("[+] cant output second word!")
             report = f"\n[+] facebook uid: {uid}\n[+] auto report activated\n[+] sending malicious report\n[+] massive report lock"
             self.send(Message(text=report), thread_id=thread_id, thread_type=thread_type)
-            print('[+] a facebook user used report command.')
+            time = datetime.datetime.now()
+            current_time = f"[{time.hour}:{time.minute}:{time.second}]"
+            print(current_time,'[+] a facebook user used report command.')
 
         def stop_command(sentence):
             words = sentence.split()
@@ -73,7 +85,9 @@ class EchoBot(Client):
                 print("[+] cant output second word!")
             stop = f"\n Yamete, Yamete Kudasai! {name}, Im so Horny!"
             self.send(Message(text=stop), thread_id=thread_id, thread_type=thread_type)
-            print('[+] a facebook user used stop command.')
+            time = datetime.datetime.now()
+            current_time = f"[{time.hour}:{time.minute}:{time.second}]"
+            print(current_time,'[+] a facebook user used stop command.')
 
         def hotdog_command(sentence):
             words = sentence.split()
@@ -83,7 +97,9 @@ class EchoBot(Client):
                 print("[+] cant output second word!")
             hotdog = f" Would you like to eat my hotdogs Mr.{name}"
             self.send(Message(text=hotdog), thread_id=thread_id, thread_type=thread_type)
-            print('[+] a facebook user used a hotdog command.')
+            time = datetime.datetime.now()
+            current_time = f"[{time.hour}:{time.minute}:{time.second}]"
+            print(current_time,'[+] a facebook user used a hotdog command.')
  
         def pizza_command(sentence):
             words = sentence.split()
@@ -93,7 +109,9 @@ class EchoBot(Client):
                 print("[+] cant output second word!")
             pizza = f" Mr.{name} love to eat pizza of a woman! Im glad he always made it."
             self.send(Message(text=pizza), thread_id=thread_id, thread_type=thread_type)
-            print('[+] a facebook user used pizza command.')
+            time = datetime.datetime.now()
+            current_time = f"[{time.hour}:{time.minute}:{time.second}]"
+            print(current_time,'[+] a facebook user used pizza command.')
 
         def webapp_command(sentence):
             words = sentence.split()
@@ -123,7 +141,9 @@ class EchoBot(Client):
                     data = file.read()
                 badresponse = webapp + data
                 self.send(Message(text=badresponse), thread_id=thread_id, thread_type=thread_type)
-            print('[+] a facebook user used a webapp command.') 
+            time = datetime.datetime.now()
+            current_time = f"[{time.hour}:{time.minute}:{time.second}]"
+            print(current_time,'[+] a facebook user used a webapp command.') 
 
 
         def ipaddr_command(sentence):
@@ -153,7 +173,9 @@ class EchoBot(Client):
                     data = file.read()
                 badresponse = ipaddr + data
                 self.send(Message(text=badresponse), thread_id=thread_id, thread_type=thread_type)
-            print('[+] a facebook user used a ipaddr command.')
+            time = datetime.datetime.now()
+            current_time = f"[{time.hour}:{time.minute}:{time.second}]"
+            print(current_time,'[+] a facebook user used a ipaddr command.')
 
         def troll_command():
             txt  = "/home/interceptX/notes/tools/facebook/data/troll.txt"
@@ -161,7 +183,9 @@ class EchoBot(Client):
                 lines = file.readlines()
             random_line = random.choice(lines)
             self.send(Message(text=random_line), thread_id=thread_id, thread_type=thread_type)
-            print('[+] a facebook user used a troll command')
+            time = datetime.datetime.now()
+            current_time = f"[{time.hour}:{time.minute}:{time.second}]"
+            print(current_time,'[+] a facebook user used a troll command')
 
         def word_command():
             txt  = "/home/interceptX/notes/tools/facebook/data/random.txt"
@@ -169,7 +193,9 @@ class EchoBot(Client):
                 lines = file.readlines()
             random_word = random.choice(lines)
             self.send(Message(text=random_word), thread_id=thread_id, thread_type=thread_type)
-            print('[+] a facebook user used a gods word command.')
+            time = datetime.datetime.now()
+            current_time = f"[{time.hour}:{time.minute}:{time.second}]"
+            print(current_time,'[+] a facebook user used a gods word command.')
 
         def chat_command(user_message):
             facebook_user = user_message
@@ -180,13 +206,15 @@ class EchoBot(Client):
             chatbot = ChatBot('Chatpot')
             response = chatbot.get_response(facebook_user)
             self.send(Message(text=response), thread_id=thread_id, thread_type=thread_type)
-            print('[+] bot is responding  to facebook users.')
+            time = datetime.datetime.now()
+            current_time = f"[{time.hour}:{time.minute}:{time.second}]"
+            print(current_time,'[+] bot is responding  to facebook users.')
 
         try:
             if author_id != self.uid:
                 message = message_object.text
 
-                if message.lower() is not None: chat_command(message.lower())
+                if "@hi" in message.lower(): welcome_command()
                 elif "@help" in message.lower(): help_command()
                 elif "@info" in message.lower(): info_command()
                 elif "@zoom" in message.lower(): zoom_command()
@@ -199,8 +227,7 @@ class EchoBot(Client):
                 elif "@webapp" in message.lower(): webapp_command(message.lower())
                 elif "@ipaddr" in message.lower(): ipaddr_command(message.lower())
                 elif "@word" in message.lower(): word_command()
-                elif "@hi" in message.lower(): welcome_command()
-                   
+                elif message.lower() is not None: chat_command(message.lower())
 
         except KeyboardInterrupt:
             print("[+] facebook bot terminated!")
@@ -209,18 +236,21 @@ class EchoBot(Client):
 session_cookies = {
 }
 
+time = datetime.datetime.now()
+current_time = f"[{time.hour}:{time.minute}:{time.second}]"
+
 try:
     client = EchoBot("", "", session_cookies=session_cookies)
     if client.isLoggedIn() is True:
-        print("[+] facebook bot successfully logged in!")
-        print("[+] facebook bot client will now listen conversations.")
+        print(current_time,"[+] facebook bot successfully logged in!")
+        print(current_time,"[+] facebook bot client will now listen conversations.")
         if client.listen() is True:
-            print("[+] facebook bot client is actively listening conversations.")
+            print(current_time,"[+] facebook bot client is actively listening conversations.")
         else:
-            print("[!] facebook bot listening something went wrong!.")
+            print(current_time,"[!] facebook bot listening something went wrong!.")
     else:
-        print("[!] something went wrong about the bot!")
+        print(current_time,"[!] something went wrong about the bot!")
 
 except FBchatUserError:
-    print("[+] facebook bot terminated!")
+    print(current_time,"[+] facebook bot terminated!")
     sys.exit(0)
