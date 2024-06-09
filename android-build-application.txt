@@ -1,0 +1,15 @@
+sudo yum install centos-release-scl
+sudo yum install centos-scl-devtoolset
+sudo yum install python3-devel
+sudo yum install gobject-introspection 
+sudo yum install glib2-devel
+sudo yum install gobject-introspection-devel
+
+mkdir staging-android-app
+cd staging-android-app
+python3 -m venv staging-android-app
+source staging-android-app/bin/activate
+
+pip install briefcase
+briefcase new
+
