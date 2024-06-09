@@ -1,0 +1,6 @@
+https://client-api.arkoselabs.com/cdn/fc/assets/ec-game-core/bootstrap/1.20.0/standard/game_core_bootstrap.js
+https://client-api.arkoselabs.com/v2/E2B95E32-21FE-4E68-8BB0-0AB02AC2BCEC/api.js
+https://client-api.arkoselabs.com/v2/api.js
+https://client-api.arkoselabs.com/metrics/ui
+
+https://portal-prod.arkoselabs.com/api/
