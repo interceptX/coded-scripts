@@ -1,0 +1,20 @@
+# Create a partition on the external hard disk
+fdisk /dev/sdb
+
+# Format the partition with ext4
+mkfs.ext4 /dev/sdb1
+
+# Mount the partition to /mnt/external
+mkdir /mnt/external
+mount /dev/sdb1 /mnt/external
+
+# Edit the /etc/fstab file
+echo "/dev/sdb1 /mnt/external ext4 defaults 0 0" >> /etc/fstab
+
+# Extend the /root and /home partitions
+lvextend -L +10G /dev/mapper/centos-root
+lvextend -L +20G /dev/mapper/centos-home
+
+# Resize the /root and /home filesystems
+resize2fs /dev/mapper/centos-root
+resize2fs /dev/mapper/centos-home
