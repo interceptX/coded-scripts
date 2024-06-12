@@ -1,0 +1,29 @@
+cat /dev/null > /etc/resolv.conf
+echo "nameserver 94.140.14.49" >> /etc/resolv.conf
+echo "nameserver 94.140.14.59" >> /etc/resolv.conf
+echo "[+] dns server updated!"
+-------------------------------------------------------
+
+save this file in /etc/init.d/resolv.conf as `dns.sh`
+chmod 755 dns.sh
+chown root:root
+
+-------------------------------------------------------
+
+[Unit]
+Description=change default dns to adguard dns service
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/etc/init.d/dns.sh
+
+[Install]
+WantedBy=multi-user.target
+
+save this into file /etc/systemd/system/dns.service
+------------------------------------------------------
+
+systemctl enable dns.service
+systemctl start dns.service
+systemctl status dns.service
