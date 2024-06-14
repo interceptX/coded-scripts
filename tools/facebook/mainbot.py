@@ -1,10 +1,10 @@
 from fbchat import Client  
 from fbchat.models import *
 import fbchat
-from chatterbot import ChatBot
+#from chatterbot import ChatBot
 #from chatterbot.trainers import ChatterBotCorpusTrainer
 import datetime
-import spacy
+#import spacy
 import subprocess
 import sys
 import random
@@ -196,6 +196,7 @@ class EchoBot(Client):
             current_time = f"[{time.hour}:{time.minute}:{time.second}]"
             print(current_time,'[+] a facebook user used a gods word command.')
 
+        """
         def chat_command(user_message):
             facebook_user = user_message
             #nlp = spacy.load('en_core_web_sm')
@@ -208,7 +209,7 @@ class EchoBot(Client):
             time = datetime.datetime.now()
             current_time = f"[{time.hour}:{time.minute}:{time.second}]"
             print(current_time,'[+] bot responded to facebook user message : ',facebook_user)
-            
+        """ 
 
         def chat_random(user_message):
             txt  = "/home/interceptx/notes/tools/facebook/data/troll.txt"
