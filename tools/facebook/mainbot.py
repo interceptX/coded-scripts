@@ -16,7 +16,7 @@ class EchoBot(Client):
         self.markAsRead(thread_id)
 
         def welcome_command():
-            txt  = "/home/interceptX/notes/tools/facebook/data/banner.txt"
+            txt  = "/home/interceptx/notes/tools/facebook/data/banner.txt"
             with open(txt,'r') as file:
                 lines = file.read()
             reply = lines
@@ -27,7 +27,7 @@ class EchoBot(Client):
 
 
         def help_command(): 
-            txt  = "/home/interceptX/notes/tools/facebook/data/help.txt"
+            txt  = "/home/interceptx/notes/tools/facebook/data/help.txt"
             with open(txt,'r') as file:
                 lines = file.read()
             reply = lines
@@ -37,7 +37,7 @@ class EchoBot(Client):
             print(current_time,'[+] a facebook user used help command.')
 
         def adel_info(): 
-            txt  = "/home/interceptX/notes/tools/facebook/data/adel.txt"
+            txt  = "/home/interceptx/notes/tools/facebook/data/adel.txt"
             with open(txt,'r') as file:
                 lines = file.read()
             reply = lines
@@ -48,7 +48,7 @@ class EchoBot(Client):
 
 
         def info_command():
-            txt = "/home/interceptX/notes/tools/facebook/data/info.txt"
+            txt = "/home/interceptx/notes/tools/facebook/data/info.txt"
             with open(txt, 'r') as file:
                 lines = file.read()
             reply = lines
@@ -119,7 +119,7 @@ class EchoBot(Client):
             else:
                 print("[+] cant output second word!")
             target = website
-            filetext = '/home/interceptX/notes/tools/facebook/data/subdomains.txt'
+            filetext = '/home/interceptx/notes/tools/facebook/data/subdomains.txt'
             webapp = f"\n[+] getting subdomain: {target}\n[+] subdomain lists\n"
             command = f"curl -s 'https://crt.sh/?q=%25.{target}&output=json' | jq -r '.[].name_value' | sort -u "
             data = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -152,7 +152,7 @@ class EchoBot(Client):
             else:
                 print("[+] cant output second word!")
             ipaddr = f"\n[+] getting ip address info\n[+] target: {host}\n[+] server response:\n"
-            filetext = '/home/interceptX/notes/tools/facebook/data/ipinfo.txt'
+            filetext = '/home/interceptx/notes/tools/facebook/data/ipinfo.txt'
             command = f"curl -s ipinfo.io/{host} | jq '.hostname, .city, .region, .country, .loc, .org, .postal, .timezone'"
             data = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             output, error = data.communicate()
@@ -177,7 +177,7 @@ class EchoBot(Client):
             print(current_time,'[+] a facebook user used a ipaddr command.')
 
         def troll_command():
-            txt  = "/home/interceptX/notes/tools/facebook/data/troll.txt"
+            txt  = "/home/interceptx/notes/tools/facebook/data/troll.txt"
             with open(txt,'r') as file:
                 lines = file.readlines()
             random_line = random.choice(lines)
@@ -187,7 +187,7 @@ class EchoBot(Client):
             print(current_time,'[+] a facebook user used a troll command')
 
         def word_command():
-            txt  = "/home/interceptX/notes/tools/facebook/data/random.txt"
+            txt  = "/home/interceptx/notes/tools/facebook/data/random.txt"
             with open(txt,'r') as file:
                 lines = file.readlines()
             random_word = random.choice(lines)
@@ -208,6 +208,18 @@ class EchoBot(Client):
             time = datetime.datetime.now()
             current_time = f"[{time.hour}:{time.minute}:{time.second}]"
             print(current_time,'[+] bot responded to facebook user message : ',facebook_user)
+            
+
+        def chat_random(user_message):
+            txt  = "/home/interceptx/notes/tools/facebook/data/troll.txt"
+            with open(txt,'r') as file:
+                lines = file.readlines()
+            random_line = random.choice(lines)
+            self.send(Message(text=random_line), thread_id=thread_id, thread_type=thread_type)
+            time = datetime.datetime.now()
+            current_time = f"[{time.hour}:{time.minute}:{time.second}]"
+            print(current_time,'[+] bot respond random message to facebook user message : ', user_message)
+
 
         try:
             if author_id != self.uid:
@@ -226,7 +238,7 @@ class EchoBot(Client):
                 elif "@webapp" in message.lower(): webapp_command(message.lower())
                 elif "@ipaddr" in message.lower(): ipaddr_command(message.lower())
                 elif "@word" in message.lower(): word_command()
-                elif message.lower() is not None: chat_command(message.lower())
+                elif message.lower() is not None: chat_random(message.lower())
 
         except KeyboardInterrupt:
             print("[+] facebook bot terminated!")

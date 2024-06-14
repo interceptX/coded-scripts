@@ -331,8 +331,8 @@ statusbar = {
 };
 settings = {
   core = {
-    real_name = "marvel";
-    user_name = "marvel";
+    real_name = "interceptx";
+    user_name = "interceptx";
     nick = "marvel";
   };
   "fe-text" = { actlist_sort = "refnum"; };
