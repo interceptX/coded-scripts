@@ -1,12 +1,12 @@
-MarvelBot v1.0 commands:
+[MarvelBot Commands]
 
-- @troll = generate a joke
-- @info  = bot information
-- @zoom  = zoom link meeting
-- @adel = info about Mr.Adel
-- @stop = command: stop name
-- @hotdog = command: hotdog name
-- @pizza = command: pizza name
-- @report = command: report name
-- @webapp = command: webapp domain
-- @ipaddr = command: ipaddr ip
+◯︎  @troll = generate joke
+◯︎  @info  = bot information
+◯︎  @zoom  = zoom link generator
+◯︎  @adel = info about kua adel
+◯︎  @stop = @stop target_name
+◯︎  @hotdog = @hotdog target_name
+◯︎  @pizza = @pizza target_name
+◯︎  @report = @report target_name
+◯︎  @webapp = @webapp target_domain
+◯︎  @ipaddr = @ipaddr target_ip
