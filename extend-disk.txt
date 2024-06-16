@@ -11,9 +11,23 @@ mount /dev/sdb1 /mnt/external
 # Edit the /etc/fstab file
 echo "/dev/sdb1 /mnt/external ext4 defaults 0 0" >> /etc/fstab
 
+#vgs command to check for group name
+vgs
+
+#command for creating a group name
+vgcreate root-debian /dev/mmcblk1p1
+vgremove root-debian
+
+#command for extending root size
+vgextend root-debian /dev/sda1
+
+
 # Extend the /root and /home partitions
 lvextend -L +10G /dev/mapper/centos-root
 lvextend -L +20G /dev/mapper/centos-home
+
+# Reducing the /root partition
+lvreduce -L -1G /dev/mmcblk1p1
 
 # Resize the /root and /home filesystems
 resize2fs /dev/mapper/centos-root
