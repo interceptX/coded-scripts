@@ -1,1 +1,1 @@
-ssh and gpg file note guide
+notes for the scripts!
