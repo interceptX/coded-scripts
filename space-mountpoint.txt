@@ -1,0 +1,14 @@
+#!/bin/bash
+
+df -Th
+lsblk
+sudo umount -a
+sudo pvdisplay
+sudo pvcreate /dev/sda1
+sudo vgcreate gigabyte /dev/sda1
+
+----------------------------------------------------
+
+sudo lvremove gigabyte
+sudo vgremove /dev/sda1
+sudo pvremove /dev/sda1
