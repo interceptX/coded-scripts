@@ -22,11 +22,17 @@ deactivate
 ---------------------------------------------------
 
 sudo umount /dev/vg-gigabyte/lv-gigabyte /extendheremotherfucker
-
+#if still not sure power it off or reboot the machine!
 ---------------------------------------------------
 #remove and redo the process
 sudo vgs && sudo pvdisplay && sudo vgdisplay && sudo lvdisplay && lsblk -f
-sudo pvremove /dev/sda1
 sudo vgremove vg-gigabyte
+sudo pvremove /dev/sda1
 sudo lvremove /dev/vg-gigabyte/lv-gigabyte
+poweroff or reboot !
+--------------------------------------------------
+sudo vgchange -ay
 
+--------------------------------------------------
+WARNING! To completely unmount the flashdrive just power if off for safety
+it might corrupt the file if not unmount properly.
