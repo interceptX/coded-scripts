@@ -22,3 +22,11 @@ deactivate
 ---------------------------------------------------
 
 sudo umount /dev/vg-gigabyte/lv-gigabyte /extendheremotherfucker
+
+---------------------------------------------------
+#remove and redo the process
+sudo vgs && sudo pvdisplay && sudo vgdisplay && sudo lvdisplay && lsblk -f
+sudo pvremove /dev/sda1
+sudo vgremove vg-gigabyte
+sudo lvremove /dev/vg-gigabyte/lv-gigabyte
+
