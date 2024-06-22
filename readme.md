@@ -1,1 +1,1 @@
-notes for the scripts!
+#repo combination of notes and tools!

@@ -254,24 +254,6 @@ session_cookies = {
     "xs": "33:kCP2ZgTDGQQu1A:2:1717892031:-1:7470"
 }
 
-
-"""
-session_cookies = {
-
-    'ps_l':'1',
-    'ps_n':'1',
-    'datr':'olNVZvZmQlE-47yILc0hfmva',
-    'locale':'pt_BR',
-    'sb':'olNVZrgZPTbKbMYIqQ84sHQK',
-    'dbln':'%7B%2261560670280809%22%3A%22gIKiPVg3%22%7D',
-    'c_user':'61560670280809',
-    'fr':'1ANXYcBrFR8006iGx.AWXNey-o86LDphLqxeOted7u5nA.BmWuJK..AAA.0.0.BmWuJK.AWWxzHNgB_s',
-    'xs':'12%3A2SpxBlO8ajJ6oQ%3A2%3A1717198832%3A-1%3A-1%3A%3AAcWjSzkMLHyBbxTEvMKWd9SdFWpovHSugLYAC0KFvg',
-    'wd':'1024x625',
-    'presence':'C%7B%22t3%22%3A%5B%7B%22o%22%3A0%2C%22i%22%3A%22u.100002568671715%22%7D%2C%7B%22o%22%3A0%2C%22i%22%3A%22u.100042183379693%22%7D%5D%2C%22utc3%22%3A1717233682808%2C%22v%22%3A1%7D'
-}
-"""
-
 time = datetime.datetime.now()
 current_time = f"[{time.hour}:{time.minute}:{time.second}]"
 
