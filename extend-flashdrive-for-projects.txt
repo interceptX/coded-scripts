@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#this is a solution for storage permission issue when creating a project specially android
+#using this storage flashdrive as the actual physical volume for the project.
+
+sudo cfdisk /dev/sda
+sudo mkfs.btrfs /dev/sda1 -L GIGABYTE
+sudo pvcreate /dev/sda1
+sudo vgcreate vg-gigabyte /dev/sda1
+sudo lvcreate --name lv-gigabyte -l 100%FREE vg-gigabyte
+sudo mkfs.btrfs /dev/vg-gigabyte/lv-gigabyte
+sudo mkdir /extendheremotherfucker
+sudo mount /dev/vg-gigabyte/lv-gigabyte /extendheremotherfucker
+sudo vgs && sudo pvdisplay && lsblk -f && sudo lvdisplay && df -Th
+sudo python3 -m venv /extendheremotherfucker/python-libraries
+sudo chown -R hackerone:hackerone /extendheremotherfucker/python-libraries
+source /extendheremotherfucker/python-libraries/bin/activate
+---------------------------------------------------
+pip install <module> #all the libraries you wanted!
+---------------------------------------------------
+deactivate
+---------------------------------------------------
+
+sudo umount /dev/vg-gigabyte/lv-gigabyte /extendheremotherfucker
