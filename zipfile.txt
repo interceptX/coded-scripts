@@ -1,0 +1,15 @@
+https://blog.checkpoint.com/wp-content/uploads/2016/07/JPS_release.zip
+https://blog.checkpoint.com/wp-content/uploads/2017/03/BarRaxDecryptor.zip
+https://download.f-secure.com/support/tools/Mira-decryptor/Mira%20Ransomware%20Decryptor.zip
+https://esupport.trendmicro.com/media/13801530/Trend%20Micro%20Ransomware%20Decryptor_V1.0.1.zip
+https://github.com/cycraft-corp/Prometheus-Decryptor/releases/download/1.2/prometheus_decryptor.zip
+https://github.com/srlabs/black-basta-buster/archive/refs/heads/master.zip
+https://github.com/Truesec/TSDecryptors/releases/download/v1.0.0.0/Truesec.Decryptors-1.0.0.0.zip
+https://labs.bitdefender.com/wp-content/plugins/download-monitor/download.php?id=Decrypter_0-1.3.zip
+https://labs.bitdefender.com/wp-content/plugins/download-monitor/download.php?id=encoder_3_decrypter.zip
+https://media.kaspersky.com/utilities/VirusUtilities/EN/CoinVaultDecryptor.zip
+https://media.kaspersky.com/utilities/VirusUtilities/EN/rakhnidecryptor.zip
+https://media.kaspersky.com/utilities/VirusUtilities/EN/rannohdecryptor.zip
+https://media.kaspersky.com/utilities/VirusUtilities/EN/ShadeDecryptor.zip
+https://media.kaspersky.com/utilities/VirusUtilities/RU/WildfireDecryptor.zip
+https://www.elevenpaths.com/downloads/vcrypt_decryptor.zip
