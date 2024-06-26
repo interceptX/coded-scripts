@@ -1,0 +1,8 @@
+#!/bin/bash
+mkfs.btrfs /dev/sda1 -L GIGABYTE
+sudo btrfs device add /dev/sda1 /home
+sudo btrfs balance start /home
+sudo btrfs device remove /dev/sda1 /home
+
+mount /dev/sda1 -o noatime,compress=zstd:3 /home/$USER/Videos
+
