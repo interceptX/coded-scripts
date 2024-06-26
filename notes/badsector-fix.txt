@@ -1,0 +1,10 @@
+#!/bin/bash
+
+sudo umount /dev/sda1
+
+#scan for bad blocks on a storage device. perform
+#read and write test on the drive
+sudo badblocks -nvs /dev/sda
+
+#mark the bad sectors as unusable
+sudo e2fsck -c /dev/sda
