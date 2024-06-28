@@ -258,17 +258,13 @@ time = datetime.datetime.now()
 current_time = f"[{time.hour}:{time.minute}:{time.second}]"
 
 try:
-    client = EchoBot("", "", session_cookies=session_cookies)
+    client = EchoBot(None, None, max_tries=1, session_cookies=session_cookies)
     if client.isLoggedIn() is True:
         print(current_time,"[+] facebook bot successfully logged in!")
         print(current_time,"[+] facebook bot client will now listen conversations.")
-        if client.listen() is True:
-            print(current_time,"[+] facebook bot client is actively listening conversations.")
-        else:
-            print(current_time,"[!] facebook bot listening something went wrong!.")
+        client.listen()
     else:
         print(current_time,"[!] something went wrong about the bot!")
-
 except FBchatUserError:
     print(current_time,"[+] facebook bot terminated!")
     sys.exit(0)
