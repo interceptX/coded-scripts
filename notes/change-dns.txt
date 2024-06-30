@@ -1,0 +1,15 @@
+#!/bin/bash
+
+adguard-dns: 94.140.14.49, 94.140.14.59
+
+nmcli connection show
+nmcli connection edit <CONNECTION_ID>
+set ipv4.dns 8.8.8.8
+set ipv6.dns 2001:4860:4860::8888
+activate
+
+resolvectl dns enp9s0u1 8.8.8.8
+
+replace enp9s0u1 with the actual name of your network interface.
+
+Note that the resolv.conf file is managed by systemd-resolved, so editing it directly may not be effective. Instead, use the resolvectl command or the nmcli command to make changes to the DNS settings.
