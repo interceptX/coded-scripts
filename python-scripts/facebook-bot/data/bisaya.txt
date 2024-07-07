@@ -1,0 +1,81 @@
+
+Kumusta ka diha?
+Ang akong pangalan mao si Juan.
+Unsa'y ngalan nimo?
+Taga-diin ka?
+Nagtrabaho ko sa mga doktor.
+Kumusta ang imong adlaw?
+Nagkaon ko ug sinangag.
+Unsa'y imong gusto?
+Gusto ko ang mga libro.
+Kumusta ang imong pamilya?
+Nag-eskwela ko sa mga doktor.
+Unsa'y imong ginahimo?
+Naglimpyo ko sa akong kwarto.
+Kumusta ang imong kaon?
+Nagkaon ko ug adobo.
+Unsa'y imong ginakon?
+Nagtrabaho ko sa mga inhinyero.
+Kumusta ang imong bahay?
+Unsa'y imong ginabuhat sa imong bahay?
+Nag-eskwela ko sa mga abogado.
+Kumusta ka diha sa mga tindahan?
+Ang akong pangalan mao si Maria.
+Unsa'y ngalan nimo sa mga tindahan?
+Taga-diin ka sa mga tindahan?
+Nagtrabaho ko sa mga tindahan.
+Kumusta ang imong adlaw sa mga tindahan?
+Nagkaon ko ug sinangag sa mga tindahan.
+Unsa'y imong gusto sa mga tindahan?
+Gusto ko ang mga libro sa mga tindahan.
+Kumusta ang imong pamilya sa mga tindahan?
+Nag-eskwela ko sa mga tindahan.
+Unsa'y imong ginahimo sa mga tindahan?
+Naglimpyo ko sa akong kwarto sa mga tindahan.
+Kumusta ang imong kaon sa mga tindahan?
+Nagkaon ko ug adobo sa mga tindahan.
+Unsa'y imong ginakon sa mga tindahan?
+Nagtrabaho ko sa mga inhinyero sa mga tindahan.
+Kumusta ang imong bahay sa mga tindahan?
+Unsa'y imong ginabuhat sa imong bahay sa mga tindahan?
+Nag-eskwela ko sa mga abogado sa mga tindahan.
+Salamat sa imong pag-ampo kanako.
+Ang gabi-i nagpahinumdum nako sa imo.
+Dili ko kasabot kon unsa'y akong buhaton.
+Nahigugma ko nimo sa tanan nga panahon.
+Ang imong mga mata maoy akong kalipay.
+Dili ko kahibalo kon unsa'y akong gihimo.
+Nahinumduman ko ang imong ngalan.
+Ang imong pag-ampo akong kalipay.
+Salamat sa imong pagmahal kanako.
+Nahigugma ko nimo sa walay katapusan.
+Ang imong mga ngisi maoy akong kalipay.
+Dili ko kahibalo kon unsa'y akong gibuhat.
+Nahinumduman ko ang imong mga mata.
+Ang imong pag-ampo akong kalipay sa tanan nga panahon.
+Salamat sa imong pagmahal kanako sa walay katapusan.
+Nahigugma ko nimo sa tanan nga lugar.
+Ang imong mga ngisi maoy akong kalipay sa tanan nga panahon.
+Dili ko kahibalo kon unsa'y akong gihimo sa imo.
+Nahinumduman ko ang imong mga ngisi.
+Ang imong pag-ampo akong kalipay sa tanan nga lugar.
+Salamat sa imong pagmahal kanako sa tanan nga lugar.
+Nahigugma ko nimo sa tanan nga oras.
+Ang imong mga mata maoy akong kalipay sa tanan nga oras.
+Dili ko kahibalo kon unsa'y akong gibuhat sa imo.
+Nahinumduman ko ang imong mga ngisi sa tanan nga oras.
+Ang imong pag-ampo akong kalipay sa tanan nga oras.
+Salamat sa imong pagmahal kanako sa tanan nga oras.
+Nahigugma ko nimo sa tanan nga adlaw.
+Ang imong mga ngisi maoy akong kalipay sa tanan nga adlaw.
+Dili ko kahibalo kon unsa'y akong gihimo sa imo sa tanan nga adlaw.
+Nahinumduman ko ang imong mga ngisi sa tanan nga adlaw.
+Ang imong pag-ampo akong kalipay sa tanan nga adlaw.
+Salamat sa imong pagmahal kanako sa tanan nga adlaw.
+Nahigugma ko nimo sa tanan nga gabii.
+Ang imong mga mata maoy akong kalipay sa tanan nga gabii.
+Dili ko kahibalo kon unsa'y akong gibuhat sa imo sa tanan nga gabii.
+Nahinumduman ko ang imong mga ngisi sa tanan nga gabii.
+Ang imong pag-ampo akong kalipay sa tanan nga gabii.
+Salamat sa imong pagmahal kanako sa tanan nga gabii.
+Nahigugma ko nimo sa tanan nga panahon ug lugar.
