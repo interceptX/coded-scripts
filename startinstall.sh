@@ -1,7 +1,7 @@
 #!/bin/bash
 
 yum install epel-release @development-tools -y
-yum install readline-devel git gcc vim make pkg-config rpm-build python3-devel gobject-introspection-devel cairo-gobject-devel gtk3 libcanberra-gtk3 -y
+yum install radare2 readline-devel git gcc vim make pkg-config rpm-build python3-devel gobject-introspection-devel cairo-gobject-devel gtk3 libcanberra-gtk3 -y
 
 yum update
 
@@ -13,6 +13,12 @@ deactivate
 git clone --depth=1 https://github.com/interceptX/coded-scripts
 git clone --depth=1 https://github.com/interceptX/aeonflux
 git clone --depth=1 https://github.com/interceptX/Villain
+
+cp coded-scripts/tmux.conf > ~/.tmux.conf
+cp coded-scripts/vimrc > ~/.vimrc
+mkdir -p ~/.vim/colors
+cp coded-scripts/monokai-soda.vim
+
 
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
 chmod 755 msfinstall && \
