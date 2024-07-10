@@ -1,7 +1,7 @@
 #!/bin/bash
 
-yum install epel-release
-yum install git gcc vim make pkg-config rpm-build python3-devel gobject-introspection-devel cairo-gobject-devel gtk3 libcanberra-gtk3
+yum install epel-release @development-tools -y
+yum install readline-devel git gcc vim make pkg-config rpm-build python3-devel gobject-introspection-devel cairo-gobject-devel gtk3 libcanberra-gtk3 -y
 
 yum update
 
