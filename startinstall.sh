@@ -24,7 +24,7 @@ curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/t
 chmod 755 msfinstall && \
 ./msfinstall
 
-dnf install dnf-plugins-core
-dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+yum install dnf-plugins-core
+yum config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-dnf install brave-browser
+yum install brave-browser
