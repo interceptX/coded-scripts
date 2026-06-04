@@ -13,3 +13,43 @@ setInterval(() => {
   console.log(`Stored arrays: ${data.length}`);
 }, 1000);
 
+function randomHex(length = 8) {
+  const chars = "0123456789abcdef";
+  let result = "";
+
+  for (let i = 0; i < length; i++) {
+    result += chars[Math.floor(Math.random() * chars.length)];
+  }
+
+  return result;
+}
+
+function textToHex(text) {
+  return Array.from(new TextEncoder().encode(text))
+    .map(byte => byte.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+console.log(textToHex("Hello"));
+// 48656c6c6f
+
+function generateHexCode(bytes) {
+  return bytes
+    .map(byte => `0x${byte.toString(16).padStart(2, "0")}`)
+    .join(", ");
+}
+
+const data = [72, 101, 108, 108, 111];
+console.log(generateHexCode(data));
+
+// 0x48, 0x65, 0x6c, 0x6c, 0x6f
+
+function toHexLiteral(num) {
+  return "0x" + num.toString(16).toUpperCase();
+}
+
+console.log(toHexLiteral(255));
+// 0xFF
+
+console.log(randomHex());     // e.g. "7fa2c4d1"
+console.log(randomHex(16));   // e.g. "b93ef0c1a27d4e88"
