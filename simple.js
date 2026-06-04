@@ -53,3 +53,6 @@ console.log(toHexLiteral(255));
 
 console.log(randomHex());     // e.g. "7fa2c4d1"
 console.log(randomHex(16));   // e.g. "b93ef0c1a27d4e88"
+
+const code = String(Math.floor(Math.random() * 1000)).padStart(3, '0');
+console.log(code);
